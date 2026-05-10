@@ -23,9 +23,9 @@ def start(message):
     markup.row(btn2, btn3)
     bot.send_message(message.chat.id, 'Привет', reply_markup=markup)
 
-@bot.message_handler(commands=['site', 'wedsite'])
+@bot.message_handler(commands=['site', 'github'])
 def site(message):
-    bot.send_message(message.chat.id, 'https://sch4sol.schools.by/pupil/1428893')
+    bot.send_message(message.chat.id, 'https://github.com/Lapuxovskiy/tg-bot')
 
 
 
@@ -33,7 +33,7 @@ def site(message):
 @bot.message_handler(content_types=['photo'])
 def get_photo(message):
     markup = types.InlineKeyboardMarkup()
-    btn1 = types.InlineKeyboardButton('перейти в дневник ', url='https://sch4sol.schools.by/pupil/1428893')
+    btn1 = types.InlineKeyboardButton('мой репозиторий на Github ', url='https://github.com/Lapuxovskiy/tg-bot')
     markup.row(btn1)
 
     btn2 = types.InlineKeyboardButton('удалить фото ', callback_data='delete')
