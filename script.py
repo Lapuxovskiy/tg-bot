@@ -24,7 +24,7 @@ def start(message):
     bot.register_managed_bot_handler(message, on_click)
 
 
-def on_cleck(message):
+def on_click(message):
     if message.text.lower() == 'Github':
         bot.send_message(message.chat.id, 'Github is open')
     elif message.text.lower() == 'удалить фото':
