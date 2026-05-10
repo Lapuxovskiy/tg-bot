@@ -21,7 +21,7 @@ def start(message):
     btn3 = types.KeyboardButton('изменить текст ')
     markup.row(btn2, btn3)
     bot.send_message(message.chat.id, 'Привет', reply_markup=markup)
-    bot.register_managed_bot_handler(message, on_click)
+    bot.register_next_step_handler(message, on_click)
 
 
 def on_click(message):
@@ -84,7 +84,7 @@ def info(message):
         bot.reply_to(message, f'ID: {message.from_user.id}')
 
 
-
+@bot.message_handler()
 def skuf(message):
     if message.text.lower() == 'создатель':
         bot.send_message(message.chat.id, f'бот был создан @Iapuxovskiy')
