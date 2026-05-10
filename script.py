@@ -18,17 +18,21 @@ def start(message):
     btn1 = types.KeyboardButton('Github')
     markup.row(btn1)
     btn2 = types.KeyboardButton('удалить фото')
-    btn3 = types.KeyboardButton('изменить текст ')
+    btn3 = types.KeyboardButton('изменить текст')
     markup.row(btn2, btn3)
     bot.send_message(message.chat.id, 'Привет', reply_markup=markup)
-    bot.register_next_step_handler(message, on_click)
 
 
+
+
+@bot.message_handler(func=lambda m: m.text in ['Github', 'удалить фото', 'изменить текст'])
 def on_click(message):
-    if message.text.lower() == 'Github':
-        bot.send_message(message.chat.id, 'Github is open')
+    if message.text.lower() == 'github':
+        bot.send_message(message.chat.id, 'https://github.com/Lapuxovskiy/tg-bot')
     elif message.text.lower() == 'удалить фото':
         bot.send_message(message.chat.id, 'the photo was deleted')
+    elif message.text == 'изменить текст':
+        bot.send_message(message.chat.id, 'введи новый текст')
 
 
 
@@ -36,9 +40,7 @@ def on_click(message):
 
 
 
-@bot.message_handler(commands=['site', 'github'])
-def site(message):
-    bot.send_message(message.chat.id, 'https://github.com/Lapuxovskiy/tg-bot')
+
 
 
 
@@ -49,8 +51,8 @@ def get_photo(message):
     btn1 = types.InlineKeyboardButton('мой репозиторий на Github ', url='https://github.com/Lapuxovskiy/tg-bot')
     markup.row(btn1)
 
-    btn2 = types.InlineKeyboardButton('удалить фото ', callback_data='delete')
-    btn3 = types.InlineKeyboardButton('изменить текст ', callback_data='edit')
+    btn2 = types.InlineKeyboardButton('удалить фото', callback_data='delete')
+    btn3 = types.InlineKeyboardButton('изменить текст', callback_data='edit')
     markup.row(btn2, btn3)
 
     bot.reply_to(message, 'красивое фото', reply_markup=markup)
@@ -65,11 +67,7 @@ def callback_message(callback):
 
 
 
-#def info(message):
-    #if message.text.lower() == 'привет':
-        #bot.send_message(message.chat.id, f'привет, {message.from_user.first_name} {message.from_user.last_name}')
-    #elif message.text.lower() == 'id':
-        #bot.reply_to(message, f'ID: {message.from_user.id}')
+
 
 
 #@bot.message_handler(commands=['start', 'main', 'hello'])
@@ -82,12 +80,8 @@ def info(message):
         bot.send_message(message.chat.id, f'привет, {message.from_user.first_name} {message.from_user.last_name}')
     elif message.text.lower() == 'id':
         bot.reply_to(message, f'ID: {message.from_user.id}')
-
-
-@bot.message_handler()
-def skuf(message):
-    if message.text.lower() == 'создатель':
-        bot.send_message(message.chat.id, f'бот был создан @Iapuxovskiy')
+    elif message.text.lower() == 'создатель':
+            bot.send_message(message.chat.id, f'бот был создан @Iapuxovskiy')
 
 
                      
