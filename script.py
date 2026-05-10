@@ -15,13 +15,26 @@ def diary(message):
 @bot.message_handler(commands=['start'])      #создаем кнопки при команде старт
 def start(message):
     markup = types.ReplyKeyboardMarkup()
-    btn1 = types.KeyboardButton('перейти в дневник ')
+    btn1 = types.KeyboardButton('Github')
     markup.row(btn1)
-
-    btn2 = types.KeyboardButton('удалить фото ')
+    btn2 = types.KeyboardButton('удалить фото')
     btn3 = types.KeyboardButton('изменить текст ')
     markup.row(btn2, btn3)
     bot.send_message(message.chat.id, 'Привет', reply_markup=markup)
+    bot.register_managed_bot_handler(message, on_click)
+
+
+def on_cleck(message):
+    if message.text.lower() == 'Github':
+        bot.send_message(message.chat.id, 'Github is open')
+    elif message.text.lower() == 'удалить фото':
+        bot.send_message(message.chat.id, 'the photo was deleted')
+
+
+
+
+
+
 
 @bot.message_handler(commands=['site', 'github'])
 def site(message):
