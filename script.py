@@ -71,6 +71,12 @@ def info(message):
         bot.reply_to(message, f'ID: {message.from_user.id}')
 
 
+
+def skuf(message):
+    if message.text.lower() == 'создатель':
+        bot.send_message(message.chat.id, f'бот был создан @Iapuxovskiy')
+
+
                      
 bot.polling(non_stop = True)
 
