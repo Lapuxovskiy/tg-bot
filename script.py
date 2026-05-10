@@ -6,9 +6,9 @@ bot = telebot.TeleBot(os.getenv('TOKEN'))
 
 #skuf
 
-@bot.message_handler(func=lambda message: message.text == 'перейти в дневник ')
+@bot.message_handler(func=lambda message: message.text == 'мой репозиторий на Github ')
 def diary(message):
-    bot.send_message(message.chat.id, 'https://sch4sol.schools.by/pupil/1428893')
+    bot.send_message(message.chat.id, 'https://github.com/Lapuxovskiy/tg-bot')
 
 
     
