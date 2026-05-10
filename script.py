@@ -4,6 +4,7 @@ import webbrowser
 from telebot import types
 bot = telebot.TeleBot(os.getenv('TOKEN'))
 
+#skuf
 
 @bot.message_handler(func=lambda message: message.text == 'перейти в дневник ')
 def diary(message):
