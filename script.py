@@ -20,7 +20,9 @@ def start(message):
     btn2 = types.KeyboardButton('удалить фото')
     btn3 = types.KeyboardButton('изменить текст')
     markup.row(btn2, btn3)
-    bot.send_message(message.chat.id, 'Привет', reply_markup=markup)
+    file = open('./bot.png', 'rb')
+    bot.send_photo(message.chat.id, file, reply_markup=markup)
+    #bot.send_message(message.chat.id, 'Привет', reply_markup=markup)
 
 
 
